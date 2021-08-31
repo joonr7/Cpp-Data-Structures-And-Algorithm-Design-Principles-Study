@@ -46,6 +46,7 @@ public:
 		return n;
 	}
 
+	// distructor
 	~dynamic_array()
 	{
 		delete[] data; // 메모리 릭 방지
@@ -83,12 +84,12 @@ public:
 struct student
 {
 	std::string name;
-	int standard;
+	int age;
 };
 
 std::ostream& operator<<(std::ostream& os, const student& s)
 {
-	return (os << "[" << s.name << ", " << s.standard << "]");
+	return (os << "[" << s.name << ", " << s.age << "]");
 }
 
 int main()
@@ -101,10 +102,10 @@ int main()
 	for (int i = 0; i < nStudents; i++)
 	{
 		std::string name;
-		int standard;
+		int age;
 		std::cout << i + 1 << "번째 학생 이름과 나이를 입력하세요: ";
-		std::cin >> name >> standard;
-		class1[i] = student{name, standard};
+		std::cin >> name >> age;
+		class1[i] = student{name, age};
 	}
 
 	// 배열 크기보다 큰 인덱스의 학생에 접근
@@ -123,6 +124,17 @@ int main()
 	// 깊은 복사
 	auto class2 = class1;
 	std::cout << "1반을 복사하여 2반 생성: " << class2.to_string() << std::endl;
+	std::cout << "class2.begin():" << class2.begin() << std::endl; // address 
+	std::cout << "class2.begin():" << *class2.begin() << std::endl; // value e.g. [kim, 5]
+	
+	// 참고
+	// & 연산자는 개체를 가져와서 주소를 반환한다.
+	// * 연산자는 주소를 가져와서 개체를 반환한다.
+	// int i = 3;
+	// int* ip2 = &i; // 주소
+	// int j = *ip2; // j는 3임. 역참조. 
+
+	std::cout << "class2.end():" << class2.end() << std::endl;
 
 	// 두 학급을 합쳐서 새로운 큰 학급을 생성
 	auto class3 = class1 + class2;
