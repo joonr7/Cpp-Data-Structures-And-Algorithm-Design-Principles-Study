@@ -15,6 +15,7 @@ public:
 		data = new T[n];
 	}
 
+	// '=' 연산자 오버로딩.
 	dynamic_array(const dynamic_array<T>& other)
 	{
 		n = other.n;
