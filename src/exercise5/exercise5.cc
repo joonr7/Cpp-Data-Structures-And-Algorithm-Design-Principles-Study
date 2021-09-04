@@ -132,4 +132,13 @@ int main()
 	for (auto i : sll)
 		std::cout << i << ' ';
 	std::cout << std::endl;
+
+	auto sll3 = sll; // 딥카피
+	sll3.pop_front();
+	std::cout << "첫번째 리스트 복사한 뒤, 맨 앞 pop :";
+	for (auto i : sll3)
+		std::cout << i << ' ';
+	std::cout << std::endl;
+
+
 }
