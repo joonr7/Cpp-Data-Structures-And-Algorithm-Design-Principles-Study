@@ -89,6 +89,24 @@ public:
 		}
 	}
 
+	// TODO:
+	// void next()
+	// {
+	// }
+
+	// TODO:
+	// void next()
+	// {
+	// }
+
+	void printall()
+	{
+		for (auto i : *this)
+			std::cout << i << ", ";
+		std::cout << this->tail->title << ", ";
+		std::cout << std::endl;
+	}
+
 	struct singly_ll_iterator
 	{
 	private:
@@ -174,10 +192,11 @@ int main()
 	singly_ll sll = {"Yanghwa bridge","Peaches","Next level"};
 	sll.push_front("Dynamite");
 	std::cout << "첫번째 리스트: ";
-	// TODO: for문에서 end가 tail인데, end바로 앞까지만 출력함..
-	for (auto i : sll)
-		std::cout << i << ", ";
-	std::cout << std::endl;
+	sll.printall();
+	// // TODO: for문에서 end가 tail인데, end바로 앞까지만 출력함
+	// for (auto i : sll)
+	// 	std::cout << i << ", ";
+	// std::cout << std::endl;
 
 
 	// auto sll2 = sll;
@@ -187,29 +206,23 @@ int main()
   	what():  basic_string::_M_construct null not valid
 	Aborted (core dumped)
 	*/
-	
+
 	singly_ll sll2;
 	sll2 = sll;
-	
+
 	sll2.push_front("Solo");
-	std::cout << "첫번째 리스트를 복사한 후, 맨 앞에 y를 추가: ";
-	for (auto i : sll2)
-		std::cout << i << ", ";
-	std::cout << std::endl;
+	std::cout << "첫번째 리스트를 복사한 후, 맨 앞에 노래 하나를 추가: ";
+	sll2.printall();
 
 	std::cout << "딥카피 후 첫 리스트: ";
-	for (auto i : sll)
-		std::cout << i << ", ";
-	std::cout << std::endl;
-
+	sll.printall();
+	
 	// auto sll3 = sll; // 딥카피
 	singly_ll sll3;
 	sll3 = sll;
 	sll3.pop_front();
 	std::cout << "첫번째 리스트 복사한 뒤, 맨 앞 pop :";
-	for (auto i : sll3)
-		std::cout << i << ", ";
-	std::cout << std::endl;
+	sll3.printall();
 
 
 }
