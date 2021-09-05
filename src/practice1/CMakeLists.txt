@@ -6,3 +6,8 @@ project(practice1)
 # Add executables
 add_executable(practice1 practice1.cc)
 
+install(TARGETS
+  practice1
+  DESTINATION lib/${PROJECT_NAME}
+)
+
